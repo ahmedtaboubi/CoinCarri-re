@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinCarrière — Recrutez vos employés hôteliers au Maroc</title>
+  <meta name="description" content="Publiez votre offre saisonnière gratuitement sur CoinCarrière. +451 hôtels & restaurants recrutent leurs équipes en 48h au Maroc.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config to extend typography and fonts -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu-principal: #0077B6;
+      --vert-lime: #b4dc02;
+      --bleu-fonce: #003d5c;
+      --bg-dark: #0a0a0f;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --text-light: #ffffff;
+      --text-muted: #cccccc;
+
+      /* ── Theme tokens (default = dark) ─────────────────── */
+      --page-bg: #0a0a0f;
+      --section-alt-bg: #111118;
+      --section-deep-bg: #0c1219;
+      --section-grad-from: #0a0a0f;
+      --section-grad-to: #0d1117;
+      --text-primary: #ffffff;
+      --text-secondary: #cbd5e0;
+      --text-soft: #a0aec0;
+      --text-faint: #888888;
+      --surface-glass-bg: rgba(255, 255, 255, 0.05);
+      --surface-glass-border: rgba(0, 119, 182, 0.25);
+      --advantage-card-bg: rgba(255, 255, 255, 0.035);
+      --advantage-card-border: rgba(255, 255, 255, 0.08);
+      --advantage-card-hover-bg: rgba(255, 255, 255, 0.06);
+      --hotel-marquee-bg: rgba(255, 255, 255, 0.02);
+      --hotel-pill-bg: rgba(255, 255, 255, 0.04);
+      --hotel-pill-color: rgba(255, 255, 255, 0.65);
+      --hotel-pill-border: rgba(0, 119, 182, 0.35);
+      --topbar-pill-bg: rgba(10, 10, 15, 0.7);
+      --topbar-pill-border: rgba(255, 255, 255, 0.08);
+      --topbar-text: #a0aec0;
+      --topbar-text-hover: #ffffff;
+      --footer-border: rgba(255, 255, 255, 0.05);
+      --hero-eyebrow-bg: rgba(0, 119, 182, 0.15);
+      --hero-eyebrow-border: rgba(0, 119, 182, 0.4);
+      --testimonial-name-color: #ffffff;
+      --testimonial-role-color: #718096;
+      --advantage-badge-bg: rgba(255, 255, 255, 0.04);
+    }
+
+    [data-theme="light"] {
+      --page-bg: #f7f8fa;
+      --section-alt-bg: #ffffff;
+      --section-deep-bg: #eef1f5;
+      --section-grad-from: #ffffff;
+      --section-grad-to: #f1f3f6;
+      --text-primary: #0a0a0f;
+      --text-secondary: #2d3748;
+      --text-soft: #4a5568;
+      --text-faint: #6b7280;
+      --surface-glass-bg: rgba(255, 255, 255, 0.85);
+      --surface-glass-border: rgba(0, 119, 182, 0.22);
+      --advantage-card-bg: rgba(255, 255, 255, 0.85);
+      --advantage-card-border: rgba(0, 0, 0, 0.06);
+      --advantage-card-hover-bg: #ffffff;
+      --hotel-marquee-bg: rgba(0, 119, 182, 0.04);
+      --hotel-pill-bg: #ffffff;
+      --hotel-pill-color: rgba(10, 10, 15, 0.55);
+      --hotel-pill-border: rgba(0, 119, 182, 0.28);
+      --topbar-pill-bg: rgba(255, 255, 255, 0.85);
+      --topbar-pill-border: rgba(0, 0, 0, 0.08);
+      --topbar-text: #4a5568;
+      --topbar-text-hover: #0a0a0f;
+      --footer-border: rgba(0, 0, 0, 0.08);
+      --hero-eyebrow-bg: rgba(0, 119, 182, 0.1);
+      --hero-eyebrow-border: rgba(0, 119, 182, 0.35);
+      --testimonial-name-color: #0a0a0f;
+      --testimonial-role-color: #6b7280;
+      --advantage-badge-bg: rgba(180, 220, 2, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--page-bg);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    ::selection {
+      background: var(--vert-lime);
+      color: #0a0a0f;
+    }
+
+    /* ── Glassmorphism ────────────────────────────────────── */
+    .glass-card {
+      background: var(--surface-glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-glass-border);
+      position: relative;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0, 119, 182, 0.4), rgba(180, 220, 2, 0.2), rgba(0, 119, 182, 0));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Advantage card with gradient border */
+    .advantage-card {
+      background: var(--advantage-card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--advantage-card-border);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .advantage-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--bleu-principal), var(--vert-lime));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .advantage-card:hover::before {
+      opacity: 1;
+    }
+    .advantage-card:hover {
+      background: var(--advantage-card-hover-bg);
+      box-shadow: 0 0 40px rgba(0, 119, 182, 0.25);
+    }
+
+    /* ── Glow / utility ───────────────────────────────────── */
+    .hero-glow {
+      text-shadow:
+        0 0 20px rgba(180, 220, 2, 0.45),
+        0 0 40px rgba(180, 220, 2, 0.25);
+    }
+
+    .hero-title {
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-glow {
+      position: relative;
+      text-shadow: none;
+      box-shadow: 0 0 20px rgba(180, 220, 2, 0.4);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .cta-glow:hover {
+      box-shadow: 0 0 40px rgba(180, 220, 2, 0.7);
+      transform: translateY(-2px);
+    }
+    .cta-glow::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 9999px;
+      background: linear-gradient(45deg, var(--vert-lime), var(--bleu-principal), var(--vert-lime));
+      background-size: 200% 200%;
+      z-index: -1;
+      opacity: 0;
+      filter: blur(14px);
+      transition: opacity 0.4s ease;
+      animation: gradient-shift 4s ease infinite;
+    }
+    .cta-glow:hover::after {
+      opacity: 0.6;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .video-glow {
+      box-shadow:
+        0 0 0 1px rgba(0, 119, 182, 0.4),
+        0 0 60px rgba(0, 119, 182, 0.35),
+        0 0 120px rgba(0, 119, 182, 0.15);
+    }
+
+    /* Hero image frame with gradient border */
+    .hero-image-frame {
+      position: relative;
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(180, 220, 2, 0.25),
+        0 0 80px rgba(0, 119, 182, 0.35);
+      animation: hero-image-float 7s ease-in-out infinite;
+    }
+    .hero-image-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--bleu-principal), var(--vert-lime), var(--bleu-principal));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 1;
+    }
+    @keyframes hero-image-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Stats background grid pattern */
+    .stat-grid-overlay {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ── Background gradients ─────────────────────────────── */
+    .bg-gradient-radial {
+      background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+    }
+
+    /* ── Floating shapes ──────────────────────────────────── */
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .floating-shape-1 {
+      top: 10%;
+      left: 8%;
+      width: 320px;
+      height: 320px;
+      background: var(--bleu-principal);
+      animation: float-1 18s ease-in-out infinite;
+    }
+    .floating-shape-2 {
+      bottom: 12%;
+      right: 6%;
+      width: 280px;
+      height: 280px;
+      background: var(--vert-lime);
+      opacity: 0.18;
+      animation: float-2 22s ease-in-out infinite;
+    }
+    .floating-shape-3 {
+      top: 50%;
+      left: 50%;
+      width: 220px;
+      height: 220px;
+      background: var(--bleu-principal);
+      opacity: 0.25;
+      animation: float-3 25s ease-in-out infinite;
+    }
+    @keyframes float-1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(60px, -40px) scale(1.1); }
+    }
+    @keyframes float-2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-50px, -60px) scale(1.15); }
+    }
+    @keyframes float-3 {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-30%, -70%) scale(1.1); }
+    }
+
+    /* ── Scroll indicator ─────────────────────────────────── */
+    .scroll-indicator {
+      animation: scroll-bob 2.2s ease-in-out infinite;
+    }
+    @keyframes scroll-bob {
+      0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+      50% { transform: translate(-50%, 8px); opacity: 1; }
+    }
+
+    /* ── Hotel logo marquee (Section 2) ───────────────────── */
+    .hotel-marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 30px 0;
+      margin: 40px 0;
+      background: var(--hotel-marquee-bg);
+      border-top: 1px solid rgba(0, 119, 182, 0.2);
+      border-bottom: 1px solid rgba(0, 119, 182, 0.2);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .hotel-marquee-track {
+      display: flex;
+      gap: 70px;
+      width: max-content;
+      align-items: center;
+      animation: hotel-scroll 35s linear infinite;
+    }
+    .hotel-marquee-wrapper:hover .hotel-marquee-track {
+      animation-play-state: paused;
+    }
+    @keyframes hotel-scroll {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .hotel-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 10px 22px;
+      border: 1px solid var(--hotel-pill-border);
+      border-radius: 8px;
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hotel-pill-color);
+      background: var(--hotel-pill-bg);
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+    .hotel-pill:hover {
+      color: var(--vert-lime);
+      border-color: var(--vert-lime);
+      background: rgba(180, 220, 2, 0.05);
+      box-shadow: 0 0 15px rgba(180, 220, 2, 0.25);
+    }
+
+    /* ── Vertical 9:16 video frame (Section 2) ───────────── */
+    .vertical-video-frame {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      aspect-ratio: 9 / 16;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 119, 182, 0.3);
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 0 40px rgba(0, 119, 182, 0.25);
+      overflow: hidden;
+    }
+    .vertical-video {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      border: none;
+      display: block;
+      object-fit: cover;
+      background: #000;
+    }
+    @media (max-width: 640px) {
+      .vertical-video-frame {
+        max-width: 340px;
+      }
+    }
+
+    /* Reasons-to-choose badges */
+    .advantage-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--advantage-badge-bg);
+      border: 1px solid rgba(180, 220, 2, 0.3);
+      border-radius: 50px;
+      padding: 10px 24px;
+      color: var(--vert-lime);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .advantage-badge:hover {
+      background: rgba(180, 220, 2, 0.08);
+      border-color: rgba(180, 220, 2, 0.55);
+    }
+
+    /* ── Testimonial cards (Section 5) ───────────────────── */
+    .testimonial-card {
+      background: var(--surface-glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--surface-glass-border);
+      border-radius: 20px;
+      padding: 32px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 119, 182, 0.2);
+      border-color: rgba(0, 119, 182, 0.45);
+    }
+    .testimonial-quote-mark {
+      position: absolute;
+      top: -12px;
+      inset-inline-start: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 80px;
+      line-height: 1;
+      color: var(--bleu-principal);
+      opacity: 0.3;
+      pointer-events: none;
+      user-select: none;
+    }
+    .testimonial-stars {
+      color: var(--vert-lime);
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      color: var(--testimonial-name-color);
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+    .testimonial-role {
+      color: var(--testimonial-role-color);
+      font-size: 13px;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ── Hero eyebrow pill + gradient title ──────────────── */
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--hero-eyebrow-bg);
+      border: 1px solid var(--hero-eyebrow-border);
+      color: var(--vert-lime);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero-title-gradient {
+      background: linear-gradient(135deg, var(--bleu-principal), var(--vert-lime));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
+
+    /* ── Fade-in on scroll ───────────────────────────────── */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-0 { transition-delay: 0ms; }
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
+    .stagger-5 { transition-delay: 400ms; }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-section,
+      .scroll-indicator,
+      .floating-shape,
+      .hotel-marquee-track,
+      .cta-glow::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* ── Arabic / RTL support ─────────────────────────────── */
+    .lang-ar {
+      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+    }
+    .lang-ar h1,
+    .lang-ar h2,
+    .lang-ar h3 {
+      letter-spacing: 0;
+      line-height: 1.35;
+    }
+    [dir="rtl"] .hero-title-gradient,
+    [dir="rtl"] .hero-title {
+      text-align: inherit;
+    }
+    [dir="rtl"] .hotel-marquee-wrapper,
+    [dir="rtl"] .hotel-marquee-track {
+      direction: ltr;
+    }
+    /* Mirror decorative floating shapes for RTL so visual weight matches */
+    [dir="rtl"] .floating-shape-1 {
+      left: auto;
+      right: 8%;
+    }
+    [dir="rtl"] .floating-shape-2 {
+      right: auto;
+      left: 6%;
+    }
+
+    /* ── Language toggle ──────────────────────────────────── */
+    .lang-toggle {
+      background: var(--topbar-pill-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--topbar-pill-border);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18), 0 0 24px rgba(0, 119, 182, 0.18);
+    }
+    .lang-toggle-btn {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      color: var(--topbar-text);
+      font: 600 12px/1 'Inter', system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .lang-toggle-btn:hover {
+      color: var(--topbar-text-hover);
+    }
+    .lang-toggle-btn.is-active {
+      background: var(--vert-lime);
+      color: #0a0a0f;
+      box-shadow: 0 0 14px rgba(180, 220, 2, 0.45);
+    }
+
+    /* ── Theme toggle (top bar) ───────────────────────────── */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: var(--topbar-pill-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--topbar-pill-border);
+      border-radius: 999px;
+      color: var(--topbar-text);
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18), 0 0 24px rgba(0, 119, 182, 0.18);
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+        box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .theme-toggle:hover {
+      color: var(--vert-lime);
+      border-color: rgba(180, 220, 2, 0.45);
+      box-shadow: 0 6px 22px rgba(180, 220, 2, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* ── Login button (top bar) ───────────────────────────── */
+    .login-btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--topbar-pill-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 119, 182, 0.45);
+      color: var(--topbar-text-hover);
+      font: 600 13px/1 'Inter', system-ui, sans-serif;
+      letter-spacing: 0.04em;
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18), 0 0 24px rgba(0, 119, 182, 0.18);
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+        box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .login-btn:hover {
+      background: var(--bleu-principal);
+      border-color: var(--bleu-principal);
+      color: #ffffff;
+      box-shadow: 0 6px 22px rgba(0, 119, 182, 0.55);
+      transform: translateY(-1px);
+    }
+    /* Scrolled state: morph into a lime CTA, matching the primary CTA buttons. */
+    .login-btn.is-cta {
+      background: var(--vert-lime);
+      border-color: var(--vert-lime);
+      color: #0a0a0f;
+      box-shadow: 0 6px 22px rgba(180, 220, 2, 0.35);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .login-btn.is-cta:hover {
+      background: var(--vert-lime);
+      border-color: var(--vert-lime);
+      color: #0a0a0f;
+      box-shadow: 0 0 40px 6px rgba(180, 220, 2, 0.5);
+      transform: translateY(-1px);
+    }
+    .lang-ar .login-btn {
+      font-family: 'Cairo', 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+    }
+
+    /* In light mode, flip "text-white" headings/labels to dark — except inside the
+       stats section which keeps its brand blue gradient background in both themes. */
+    [data-theme="light"] .text-white {
+      color: var(--text-primary);
+    }
+    [data-theme="light"] .stat-block .text-white {
+      color: #ffffff;
+    }
+
+    /* In light mode, soften decorative elements that were tuned for dark bg */
+    [data-theme="light"] .floating-shape {
+      opacity: 0.18;
+    }
+    [data-theme="light"] .hero-glow {
+      text-shadow:
+        0 0 18px rgba(180, 220, 2, 0.35),
+        0 0 32px rgba(180, 220, 2, 0.18);
+    }
+    [data-theme="light"] .hero-title {
+      text-shadow: none;
+    }
+    [data-theme="light"] .hero-image-frame {
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(180, 220, 2, 0.3),
+        0 0 60px rgba(0, 119, 182, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] font-sans overflow-x-hidden lang-fr">
+
+  <!-- TOP BAR & CONTROLS -->
+  <div class="fixed top-4 end-4 z-50 flex items-center gap-2">
+    <a
+      href="https://coincarriere.com/login"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="login-btn"
+      class="login-btn"
+      data-i18n="login"
+    >
+      Connexion
+    </a>
+    <button
+      type="button"
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Activer le mode clair"
+      title="Activer le mode clair"
+    >
+      <span id="theme-icon-container">
+        <!-- Sun Icon (Default when theme is dark) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </span>
+    </button>
+    <div
+      class="lang-toggle flex items-center gap-1 p-1 rounded-full"
+      role="group"
+      id="lang-toggle-group"
+      aria-label="Changer de langue"
+    >
+      <button
+        type="button"
+        id="lang-fr"
+        class="lang-toggle-btn is-active"
+        aria-pressed="true"
+      >
+        FR
+      </button>
+      <button
+        type="button"
+        id="lang-ar"
+        class="lang-toggle-btn"
+        aria-pressed="false"
+      >
+        AR
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — HERO -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <canvas id="hero-particles" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+    <div class="absolute inset-0 bg-gradient-radial from-[#0077B6]/15 via-[var(--page-bg)] to-[var(--page-bg)] pointer-events-none"></div>
+    <div class="floating-shape floating-shape-1"></div>
+    <div class="floating-shape floating-shape-2"></div>
+    <div class="floating-shape floating-shape-3"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
+        <!-- LEFT — text -->
+        <div class="text-center lg:text-start order-2 lg:order-1">
+          <div class="flex justify-center lg:justify-start mb-7">
+            <img
+              src="assets/CoinCarriere_logo_v2_1777586959852.png"
+              alt="CoinCarrière"
+              class="h-24 md:h-32 lg:h-36 w-auto drop-shadow-[0_0_25px_rgba(0,119,182,0.6)]"
+            />
+          </div>
+
+          <div class="hero-eyebrow" data-i18n="hero.eyebrow">Plateforme de recrutement hôtelier</div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.5rem] font-extrabold leading-[1.15] tracking-tight mb-6 hero-title">
+            <span class="text-white whitespace-nowrap">
+              <span data-i18n="sectorLabel">Hôtels & Restaurants</span><span data-i18n="hero.titleSectorSuffix"> :</span>
+            </span>
+            <br />
+            <span class="hero-title-gradient">
+              <span data-i18n="hero.titleMain">Recrutez le bon profil,</span>
+              <br />
+              <span data-i18n="hero.titleMainBreak">plus vite</span>
+            </span>
+          </h1>
+
+          <p class="text-base md:text-lg text-[var(--text-soft)] max-w-xl mx-auto lg:mx-0 mb-9 leading-relaxed" data-i18n="hero.subtitle">
+            Fini les CV non qualifiés. Recevez uniquement des candidats qui correspondent à votre poste — dès aujourd'hui.
+          </p>
+
+          <div class="flex flex-col items-center lg:items-start gap-4">
+            <a
+              href="https://coincarriere.com/register?type=company"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-bold tracking-wide bg-[var(--vert-lime)] text-[#0a0a0f] shadow-[0_0_0_0_rgba(180,220,2,0.5)] hover:shadow-[0_0_40px_8px_rgba(180,220,2,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cta-glow primary-cta-btn"
+            >
+              <span data-i18n="hero.cta">Publier votre annonce maintenant</span>
+              <span class="cta-arrow" data-i18n="hero.ctaArrow">→</span>
+            </a>
+            <p class="text-sm text-[#718096]" data-i18n="hero.bullets">✓ Gratuit pour commencer  ·  ✓ Sans carte bancaire  ·  ✓ En ligne en 5 minutes</p>
+          </div>
+        </div>
+
+        <!-- RIGHT — Image 1 (hero) -->
+        <div class="order-1 lg:order-2 relative">
+          <div class="hero-image-frame relative rounded-2xl overflow-hidden">
+            <img
+              src="assets/Gemini_Generated_Image_9wsfla9wsfla9wsf_1777230207487.png"
+              alt="Équipe d'hôtellerie en service"
+              id="hero-img"
+              class="w-full h-[280px] sm:h-[380px] lg:h-[560px] object-cover"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--page-bg)]/70 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-5 start-5 end-5 flex items-center justify-between gap-3">
+              <div class="glass-pill px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[var(--vert-lime)] animate-pulse"></span>
+                <span data-i18n="hero.badge">+451 hôtels recrutent déjà</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 scroll-indicator hidden md:block">
+      <div class="w-[2px] h-12 bg-gradient-to-b from-transparent via-[var(--vert-lime)] to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — SOCIAL PROOF -->
+  <section class="relative py-20 md:py-28 overflow-hidden bg-[var(--section-alt-bg)]">
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <div class="fade-section text-center mb-14">
+        <div class="text-6xl md:text-8xl font-extrabold text-[var(--vert-lime)] hero-glow leading-none mb-3">
+          <span class="count-up" data-end="48" data-duration="1800">0</span>h
+        </div>
+        <p class="text-lg md:text-xl text-white" data-i18n="social.statSuffix">délai moyen de recrutement</p>
+      </div>
+
+      <!-- Vertical showcase + reasons-to-choose -->
+      <div class="fade-section mb-14">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-center max-w-5xl mx-auto">
+          <!-- LEFT — title + badges -->
+          <div class="order-2 lg:order-1 text-center lg:text-start">
+            <div class="text-sm font-semibold text-[var(--text-soft)] mb-4 tracking-wide" data-i18n="social.chooseLabel">
+              🏆 Pourquoi nous choisir
+            </div>
+            <h3 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+              <span data-i18n="social.raceTitlePre">Le recrutement, c'est une </span><span class="text-[var(--vert-lime)]" data-i18n="social.raceTitleAccent">course.</span>
+            </h3>
+            <p class="text-base md:text-lg text-[var(--text-soft)] mb-8 leading-relaxed" data-i18n="social.raceSubtitle">
+              Ceux qui utilisent CoinCarrière arrivent toujours premiers.
+            </p>
+            <div class="flex flex-col items-center lg:items-start gap-3">
+              <span class="advantage-badge" data-i18n="social.badges.0">🏆 Recrutement plus rapide</span>
+              <span class="advantage-badge" data-i18n="social.badges.1">✓ Candidats qualifiés</span>
+              <span class="advantage-badge" data-i18n="social.badges.2">🚀 Résultats dès la 1ère semaine</span>
+            </div>
+          </div>
+
+          <!-- RIGHT — vertical video -->
+          <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div class="vertical-video-frame">
+              <video
+                src="assets/Timeline_4_1777475114994.mp4"
+                poster="assets/TOF_1776962780744.png"
+                id="showcase-video"
+                autoplay
+                muted
+                loop
+                controls
+                playsinline
+                preload="auto"
+                aria-label="Démo CoinCarrière"
+                class="vertical-video"
+              >
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFINITE LOGO MARQUEE -->
+      <div class="fade-section mb-14">
+        <div class="hotel-marquee-wrapper">
+          <div class="hotel-marquee-track" id="partners-track">
+            <!-- Dynamically populated in JavaScript for infinite marquee loop -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — PROCESS (4 STEPS) -->
+  <section class="relative py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-section text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+          <span data-i18n="process.titlePre">Recrutez en </span><span class="text-[var(--vert-lime)] hero-glow" data-i18n="process.titleAccent">4 étapes</span><span data-i18n="process.titlePost"> simples</span>
+        </h2>
+        <p class="mt-4 text-[var(--text-soft)] text-base md:text-lg" data-i18n="process.subtitle">De l'offre à l'embauche, tout en un endroit.</p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden lg:block absolute top-[60px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-[var(--bleu-principal)] via-[var(--vert-lime)] to-[var(--bleu-principal)] opacity-40 pointer-events-none -z-10"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+          
+          <!-- Step 1 -->
+          <div class="fade-section stagger-0 h-full">
+            <div class="glass-card rounded-2xl p-7 h-full text-center relative group hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,119,182,0.4)]">
+              <div class="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--bleu-principal)]/30 to-[var(--vert-lime)]/20 flex items-center justify-center mb-4 ring-1 ring-white/10 text-3xl">
+                📝
+              </div>
+              <div class="text-5xl font-extrabold text-[var(--vert-lime)] hero-glow mb-2">01</div>
+              <h3 class="text-xl font-bold text-white mb-2" data-i18n="process.steps.0.title">Publiez</h3>
+              <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="process.steps.0.desc">Décrivez votre poste en quelques minutes, en ligne immédiatement.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="fade-section stagger-1 h-full">
+            <div class="glass-card rounded-2xl p-7 h-full text-center relative group hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,119,182,0.4)]">
+              <div class="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--bleu-principal)]/30 to-[var(--vert-lime)]/20 flex items-center justify-center mb-4 ring-1 ring-white/10 text-3xl">
+                📥
+              </div>
+              <div class="text-5xl font-extrabold text-[var(--vert-lime)] hero-glow mb-2">02</div>
+              <h3 class="text-xl font-bold text-white mb-2" data-i18n="process.steps.1.title">Recevez</h3>
+              <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="process.steps.1.desc">Les candidats qualifiés de votre secteur postulent directement.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="fade-section stagger-2 h-full">
+            <div class="glass-card rounded-2xl p-7 h-full text-center relative group hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,119,182,0.4)]">
+              <div class="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--bleu-principal)]/30 to-[var(--vert-lime)]/20 flex items-center justify-center mb-4 ring-1 ring-white/10 text-3xl">
+                🔍
+              </div>
+              <div class="text-5xl font-extrabold text-[var(--vert-lime)] hero-glow mb-2">03</div>
+              <h3 class="text-xl font-bold text-white mb-2" data-i18n="process.steps.2.title">Évaluez</h3>
+              <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="process.steps.2.desc">Pipeline visuel, notes d'équipe, planification d'entretiens intégrée.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="fade-section stagger-3 h-full">
+            <div class="glass-card rounded-2xl p-7 h-full text-center relative group hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,119,182,0.4)]">
+              <div class="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--bleu-principal)]/30 to-[var(--vert-lime)]/20 flex items-center justify-center mb-4 ring-1 ring-white/10 text-3xl">
+                ✅
+              </div>
+              <div class="text-5xl font-extrabold text-[var(--vert-lime)] hero-glow mb-2">04</div>
+              <h3 class="text-xl font-bold text-white mb-2" data-i18n="process.steps.3.title">Embauchez</h3>
+              <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="process.steps.3.desc">Envoyez l'offre, signez, suivez en temps réel.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — ADVANTAGES (6 BLOCKS) -->
+  <section class="relative py-20 md:py-28 overflow-hidden bg-[var(--section-deep-bg)]">
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <div class="fade-section text-center mb-14">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+          <span data-i18n="advantages.titleLine1">Tout ce dont vous avez besoin</span> <br class="hidden md:block" />
+          <span data-i18n="advantages.titleLine2Pre">pour </span><span class="text-[var(--vert-lime)] hero-glow" data-i18n="advantages.titleLine2Accent">recruter</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Advantage 1 -->
+        <div class="fade-section stagger-0 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              🔍
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.0.title">Pipeline visuel</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.0.desc">Visualisez toutes vos candidatures d'un seul coup d'œil.</p>
+          </div>
+        </div>
+
+        <!-- Advantage 2 -->
+        <div class="fade-section stagger-1 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              👥
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.1.title">Travail en équipe</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.1.desc">Partagez les profils, commentez, décidez ensemble.</p>
+          </div>
+        </div>
+
+        <!-- Advantage 3 -->
+        <div class="fade-section stagger-2 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              📅
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.2.title">Entretiens intégrés</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.2.desc">Planifiez et gérez vos entretiens depuis la plateforme.</p>
+          </div>
+        </div>
+
+        <!-- Advantage 4 -->
+        <div class="fade-section stagger-3 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              🏢
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.3.title">Page carrière</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.3.desc">Votre page recrutement générée automatiquement.</p>
+          </div>
+        </div>
+
+        <!-- Advantage 5 -->
+        <div class="fade-section stagger-4 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              📊
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.4.title">Analytics</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.4.desc">Mesurez le coût par embauche et le temps de recrutement.</p>
+          </div>
+        </div>
+
+        <!-- Advantage 6 -->
+        <div class="fade-section stagger-5 h-full">
+          <div class="advantage-card relative h-full rounded-2xl p-7 group hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--bleu-principal)]/40 to-[var(--vert-lime)]/15 flex items-center justify-center mb-5 ring-1 ring-white/10 text-2xl">
+              🤝
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2" data-i18n="advantages.items.5.title">Accompagnement</h3>
+            <p class="text-[var(--text-soft)] text-sm leading-relaxed" data-i18n="advantages.items.5.desc">Un conseiller CoinCarrière dédié à chaque étape.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — TESTIMONIALS -->
+  <section id="testimonials" class="relative py-20 md:py-28 bg-gradient-to-b from-[var(--section-grad-from)] to-[var(--section-grad-to)]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-section text-center mb-14">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+          <span data-i18n="testimonials.titlePre">Ils ont transformé </span><span class="text-[var(--vert-lime)] hero-glow" data-i18n="testimonials.titleAccent">leur recrutement</span>
+        </h2>
+        <p class="mt-4 text-[var(--text-soft)] text-base md:text-lg max-w-2xl mx-auto" data-i18n="testimonials.subtitle">
+          Découvrez pourquoi les recruteurs Hôtels & Restaurants choisissent CoinCarrière.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        
+        <!-- Testimonial 1 -->
+        <div class="fade-section stagger-0 h-full">
+          <article class="testimonial-card relative h-full">
+            <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="testimonial-stars" aria-label="Note 5 sur 5">★★★★★</div>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-7 relative z-10" data-i18n="testimonials.items.0.quote">
+              Depuis CoinCarrière, on reçoit 3× plus de candidatures qualifiées en moins de temps.
+            </p>
+            <div class="flex items-center gap-3.5 relative z-10">
+              <div class="testimonial-avatar" style="background: var(--bleu-principal); color: #ffffff;" aria-hidden="true" data-i18n="testimonials.items.0.initials">
+                FR
+              </div>
+              <div>
+                <div class="testimonial-name">— <span data-i18n="testimonials.items.0.name">Fatima R.</span></div>
+                <div class="testimonial-role" data-i18n="testimonials.items.0.role">Responsable RH · Hôtel 5★, Casablanca</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="fade-section stagger-1 h-full">
+          <article class="testimonial-card relative h-full">
+            <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="testimonial-stars" aria-label="Note 5 sur 5">★★★★★</div>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-7 relative z-10" data-i18n="testimonials.items.1.quote">
+              Nous avons recruté 3 réceptionnistes qualifiées en moins de 72h.
+            </p>
+            <div class="flex items-center gap-3.5 relative z-10">
+              <div class="testimonial-avatar" style="background: var(--bleu-principal); color: #ffffff;" aria-hidden="true" data-i18n="testimonials.items.1.initials">
+                KB
+              </div>
+              <div>
+                <div class="testimonial-name">— <span data-i18n="testimonials.items.1.name">Karim B.</span></div>
+                <div class="testimonial-role" data-i18n="testimonials.items.1.role">Directeur RH · Hôtel 5★, Marrakech</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="fade-section stagger-2 h-full">
+          <article class="testimonial-card relative h-full">
+            <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="testimonial-stars" aria-label="Note 5 sur 5">★★★★★</div>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-7 relative z-10" data-i18n="testimonials.items.2.quote">
+              Le pipeline visuel nous a changé la vie. On gère tout en équipe, sans Excel.
+            </p>
+            <div class="flex items-center gap-3.5 relative z-10">
+              <div class="testimonial-avatar" style="background: var(--vert-lime); color: #0a0a0f;" aria-hidden="true" data-i18n="testimonials.items.2.initials">
+                NM
+              </div>
+              <div>
+                <div class="testimonial-name">— <span data-i18n="testimonials.items.2.name">Nadia M.</span></div>
+                <div class="testimonial-role" data-i18n="testimonials.items.2.role">Responsable RH · Groupe hôtelier, Agadir</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="fade-section stagger-3 h-full">
+          <article class="testimonial-card relative h-full">
+            <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="testimonial-stars" aria-label="Note 5 sur 5">★★★★★</div>
+            <p class="text-[var(--text-secondary)] text-base leading-relaxed mb-7 relative z-10" data-i18n="testimonials.items.3.quote">
+              Gratuit pour commencer et les résultats sont là dès la première semaine.
+            </p>
+            <div class="flex items-center gap-3.5 relative z-10">
+              <div class="testimonial-avatar" style="background: var(--bleu-principal); color: #ffffff;" aria-hidden="true" data-i18n="testimonials.items.3.initials">
+                YA
+              </div>
+              <div>
+                <div class="testimonial-name">— <span data-i18n="testimonials.items.3.name">Youssef A.</span></div>
+                <div class="testimonial-role" data-i18n="testimonials.items.3.role">DRH · Resort 4★, Tanger</div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5b — DRISS STORY VIDEO -->
+  <section class="relative py-20 md:py-28 bg-[var(--section-alt-bg)] overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="fade-section text-center mb-10">
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+          <span id="driss-title-pre">Découvrez </span><span class="text-[var(--vert-lime)] hero-glow" id="driss-title-accent">l'histoire de Driss</span>
+        </h2>
+      </div>
+      <div class="fade-section">
+        <div class="relative mx-auto max-w-sm md:max-w-md rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.45)] ring-1 ring-white/10 bg-black">
+          <video
+            id="driss-video"
+            src="assets/WhatsApp_Video_2026-05-01_at_06.22.31_1777741643103.mp4"
+            playsinline
+            preload="metadata"
+            class="w-full h-auto block bg-black"
+          ></video>
+          <button
+            type="button"
+            id="driss-play-btn"
+            aria-label="Play video"
+            class="absolute inset-0 flex items-center justify-center group bg-black/30 hover:bg-black/40 transition-colors"
+          >
+            <span class="flex items-center justify-center w-24 h-24 md:w-28 md:h-28 rounded-full bg-[var(--vert-lime)] text-[var(--bleu-principal)] shadow-[0_0_40px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 md:w-14 md:h-14 ms-1">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — STATISTICS -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--bleu-principal)] to-[#003d5c]"></div>
+    <div class="absolute inset-0 stat-grid-overlay opacity-25"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
+      <div class="fade-section">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 text-center">
+          
+          <div class="stat-block">
+            <div class="text-5xl md:text-7xl font-extrabold text-white leading-none">
+              +<span class="count-up" data-end="451" data-duration="1800">0</span>
+            </div>
+            <p class="mt-3 text-[var(--vert-lime)] text-base font-semibold" data-i18n="stats.companies">
+              Entreprises actives
+            </p>
+          </div>
+
+          <div class="stat-block md:border-x md:border-white/15">
+            <div class="text-5xl md:text-7xl font-extrabold text-white leading-none">
+              +<span class="count-up" data-end="10000" data-duration="1800">0</span>
+            </div>
+            <p class="mt-3 text-[var(--vert-lime)] text-base font-semibold" data-i18n="stats.candidates">
+              Candidats qualifiés
+            </p>
+          </div>
+
+          <div class="stat-block">
+            <div class="text-5xl md:text-7xl font-extrabold text-white leading-none">
+              <span class="count-up" data-end="48" data-duration="1800">0</span>h
+            </div>
+            <p class="mt-3 text-[var(--vert-lime)] text-base font-semibold" data-i18n="stats.delay">
+              Délai moyen de recrutement
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — FINAL CTA -->
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-20">
+    <canvas id="cta-particles" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+    <div class="absolute inset-0 bg-gradient-radial from-[#0077B6]/20 via-[var(--page-bg)] to-[var(--page-bg)] pointer-events-none"></div>
+    <div class="floating-shape floating-shape-1"></div>
+    <div class="floating-shape floating-shape-2"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <div class="fade-section">
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+          <span data-i18n="finalCta.titleLine1">Votre prochain recrutement</span> <br class="hidden md:block" />
+          <span class="text-[var(--vert-lime)] hero-glow" data-i18n="finalCta.titleLine2">commence ici</span>
+        </h2>
+        <p class="text-[var(--text-soft)] text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed" data-i18n="finalCta.subtitle">
+          Publiez votre première annonce en moins de 5 minutes.
+        </p>
+        <a
+          href="https://coincarriere.com/register?type=company"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-bold tracking-wide bg-[var(--vert-lime)] text-[#0a0a0f] shadow-[0_0_0_0_rgba(180,220,2,0.5)] hover:shadow-[0_0_40px_8px_rgba(180,220,2,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cta-glow primary-cta-btn"
+        >
+          <span data-i18n="finalCta.cta">Publier votre annonce maintenant</span>
+          <span class="cta-arrow" data-i18n="finalCta.ctaArrow">→</span>
+        </a>
+        <p class="mt-5 text-sm text-[var(--text-soft)]" data-i18n="finalCta.bullets">✓ Gratuit pour commencer · ✓ Sans carte bancaire · ✓ En ligne en 5 minutes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[var(--footer-border)] py-8 text-center text-sm text-[var(--text-faint)]">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p data-i18n="footer">© 2026 CoinCarrière — coincarriere.com | Plateforme de recrutement au Maroc</p>
+      <img src="assets/CoinCarriere_logo_v2_1777586959852.png" alt="" class="h-12 md:h-14 w-auto opacity-80" />
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APPLICATION CODE -->
+  <script>
+    // Constants
+    const REGISTER_URL = "https://coincarriere.com/register?type=company";
+    const LOGIN_URL = "https://coincarriere.com/login";
+
+    // Track Facebook Lead pixel if active
+    function trackLead() {
+      try {
+        if (typeof fbq === "function") fbq("track", "Lead");
+      } catch (e) {
+        /* noop */
+      }
+    }
+
+    // Set CTA click tracker
+    document.querySelectorAll('.primary-cta-btn').forEach(btn => {
+      btn.addEventListener('click', trackLead);
+    });
+
+    // Translation Database
+    const translations = {
+      fr: {
+        htmlLang: "fr",
+        dir: "ltr",
+        pageTitle: "CoinCarrière — Recrutez vos employés hôteliers au Maroc",
+        pageDescription: "Publiez votre offre saisonnière gratuitement sur CoinCarrière. +451 hôtels & restaurants recrutent leurs équipes en 48h au Maroc.",
+        sectorLabel: "Hôtels & Restaurants",
+        hero: {
+          eyebrow: "Plateforme de recrutement hôtelier",
+          titleSectorSuffix: " :",
+          titleMain: "Recrutez le bon profil,",
+          titleMainBreak: "plus vite",
+          subtitle: "Fini les CV non qualifiés. Recevez uniquement des candidats qui correspondent à votre poste — dès aujourd'hui.",
+          cta: "Publier votre annonce maintenant",
+          ctaArrow: "→",
+          bullets: "✓ Gratuit pour commencer  ·  ✓ Sans carte bancaire  ·  ✓ En ligne en 5 minutes",
+          badge: "+451 hôtels recrutent déjà",
+          imageAlt: "Équipe d'hôtellerie en service",
+        },
+        social: {
+          statSuffix: "délai moyen de recrutement",
+          chooseLabel: "🏆 Pourquoi nous choisir",
+          raceTitlePre: "Le recrutement, c'est une ",
+          raceTitleAccent: "course.",
+          raceSubtitle: "Ceux qui utilisent CoinCarrière arrivent toujours premiers.",
+          badges: [
+            "🏆 Recrutement plus rapide",
+            "✓ Candidats qualifiés",
+            "🚀 Résultats dès la 1ère semaine",
+          ],
+          videoAria: "Démo CoinCarrière",
+          videoFallback: "Votre navigateur ne prend pas en charge la lecture vidéo.",
+        },
+        process: {
+          titlePre: "Recrutez en ",
+          titleAccent: "4 étapes",
+          titlePost: " simples",
+          subtitle: "De l'offre à l'embauche, tout en un endroit.",
+          steps: [
+            { title: "Publiez", desc: "Décrivez votre poste en quelques minutes, en ligne immédiatement." },
+            { title: "Recevez", desc: "Les candidats qualifiés de votre secteur postulent directement." },
+            { title: "Évaluez", desc: "Pipeline visuel, notes d'équipe, planification d'entretiens intégrée." },
+            { title: "Embauchez", desc: "Envoyez l'offre, signez, suivez en temps réel." },
+          ]
+        },
+        advantages: {
+          titleLine1: "Tout ce dont vous avez besoin",
+          titleLine2Pre: "pour ",
+          titleLine2Accent: "recruter",
+          items: [
+            { title: "Pipeline visuel", desc: "Visualisez toutes vos candidatures d'un seul coup d'œil." },
+            { title: "Travail en équipe", desc: "Partagez les profils, commentez, décidez ensemble." },
+            { title: "Entretiens intégrés", desc: "Planifiez et gérez vos entretiens depuis la plateforme." },
+            { title: "Page carrière", desc: "Votre page recrutement générée automatiquement." },
+            { title: "Analytics", desc: "Mesurez le coût par embauche et le temps de recrutement." },
+            { title: "Accompagnement", desc: "Un conseiller CoinCarrière dédié à chaque étape." },
+          ]
+        },
+        testimonials: {
+          titlePre: "Ils ont transformé ",
+          titleAccent: "leur recrutement",
+          subtitle: "Découvrez pourquoi les recruteurs Hôtels & Restaurants choisissent CoinCarrière.",
+          starsAria: "Note 5 sur 5",
+          items: [
+            { quote: "Depuis CoinCarrière, on reçoit 3× plus de candidatures qualifiées en moins de temps.", name: "Fatima R.", role: "Responsable RH · Hôtel 5★, Casablanca", initials: "FR" },
+            { quote: "Nous avons recruté 3 réceptionnistes qualifiées en moins de 72h.", name: "Karim B.", role: "Directeur RH · Hôtel 5★, Marrakech", initials: "KB" },
+            { quote: "Le pipeline visuel nous a changé la vie. On gère tout en équipe, sans Excel.", name: "Nadia M.", role: "Responsable RH · Groupe hôtelier, Agadir", initials: "NM" },
+            { quote: "Gratuit pour commencer et les résultats sont là dès la première semaine.", name: "Youssef A.", role: "DRH · Resort 4★, Tanger", initials: "YA" },
+          ]
+        },
+        stats: {
+          companies: "Entreprises actives",
+          candidates: "Candidats qualifiés",
+          delay: "Délai moyen de recrutement",
+        },
+        finalCta: {
+          titleLine1: "Votre prochain recrutement",
+          titleLine2: "commence ici",
+          subtitle: "Publiez votre première annonce en moins de 5 minutes.",
+          cta: "Publier votre annonce maintenant",
+          ctaArrow: "→",
+          bullets: "✓ Gratuit pour commencer · ✓ Sans carte bancaire · ✓ En ligne en 5 minutes",
+        },
+        footer: "© 2026 CoinCarrière — coincarriere.com | Plateforme de recrutement au Maroc",
+        langToggleAria: "Changer de langue",
+        login: "Connexion",
+        topbarCta: "Publier une annonce",
+        themeToLight: "Activer le mode clair",
+        themeToDark: "Activer le mode sombre",
+      },
+      ar: {
+        htmlLang: "ar",
+        dir: "rtl",
+        pageTitle: "CoinCarrière — وظّف موظفي الفنادق في المغرب",
+        pageDescription: "انشر عرضك الموسمي مجانًا على CoinCarrière. +451 فندق ومطعم يوظفون فرقهم في 48 ساعة بالمغرب.",
+        sectorLabel: "الفنادق والمطاعم",
+        hero: {
+          eyebrow: "منصة التوظيف الفندقي",
+          titleSectorSuffix: " :",
+          titleMain: "وظّف المرشح المناسب،",
+          titleMainBreak: "بسرعة أكبر",
+          subtitle: "وداعًا للسير الذاتية غير المؤهّلة. استقبل فقط المرشحين الذين يطابقون منصبك — ابتداءً من اليوم.",
+          cta: "انشر إعلانك الآن",
+          ctaArrow: "←",
+          bullets: "✓ مجاني للبدء  ·  ✓ بدون بطاقة بنكية  ·  ✓ متوفر عبر الإنترنت في 5 دقائق",
+          badge: "+451 فندقًا يوظّفون بالفعل",
+          imageAlt: "فريق الضيافة في الخدمة",
+        },
+        social: {
+          statSuffix: "متوسط مدة التوظيف",
+          chooseLabel: "🏆 لماذا تختارنا",
+          raceTitlePre: "التوظيف هو ",
+          raceTitleAccent: "سباق.",
+          raceSubtitle: "من يستخدم CoinCarrière يصل دائمًا في المقدمة.",
+          badges: [
+            "🏆 توظيف أسرع",
+            "✓ مرشحون مؤهّلون",
+            "🚀 نتائج منذ الأسبوع الأول",
+          ],
+          videoAria: "عرض CoinCarrière",
+          videoFallback: "متصفحك لا يدعم تشغيل الفيديو.",
+        },
+        process: {
+          titlePre: "وظّف في ",
+          titleAccent: "4 خطوات",
+          titlePost: " بسيطة",
+          subtitle: "من الإعلان إلى التوظيف، كل شيء في مكان واحد.",
+          steps: [
+            { title: "انشر", desc: "صف منصبك في بضع دقائق، يُنشر فورًا." },
+            { title: "استقبل", desc: "المرشحون المؤهّلون من قطاعك يتقدّمون مباشرة." },
+            { title: "قيّم", desc: "مسار مرئي، ملاحظات الفريق، جدولة المقابلات مدمجة." },
+            { title: "وظّف", desc: "أرسل العرض، وقّع، وتابع في الوقت الفعلي." },
+          ]
+        },
+        advantages: {
+          titleLine1: "كل ما تحتاجه",
+          titleLine2Pre: "لـ",
+          titleLine2Accent: "التوظيف",
+          items: [
+            { title: "مسار مرئي", desc: "استعرض جميع طلبات التوظيف بنظرة واحدة." },
+            { title: "عمل جماعي", desc: "شارك الملفات، علّق، وقرّروا معًا." },
+            { title: "مقابلات مدمجة", desc: "خطّط وأدر مقابلاتك من المنصة." },
+            { title: "صفحة التوظيف", desc: "صفحة التوظيف الخاصة بك تُنشأ تلقائيًا." },
+            { title: "تحليلات", desc: "قس تكلفة التوظيف ومدته." },
+            { title: "مرافقة", desc: "مستشار CoinCarrière مخصّص في كل مرحلة." },
+          ]
+        },
+        testimonials: {
+          titlePre: "لقد حوّلوا ",
+          titleAccent: "عملية التوظيف لديهم",
+          subtitle: "اكتشف لماذا يختار مسؤولو التوظيف في الفنادق والمطاعم CoinCarrière.",
+          starsAria: "تقييم 5 من 5",
+          items: [
+            { quote: "منذ استخدام CoinCarrière، نستقبل 3 أضعاف من الطلبات المؤهّلة في وقت أقل.", name: "فاطمة ر.", role: "مسؤولة الموارد البشرية · فندق 5★، الدار البيضاء", initials: "FR" },
+            { quote: "وظّفنا 3 موظفات استقبال مؤهّلات في أقل من 72 ساعة.", name: "كريم ب.", role: "مدير الموارد البشرية · فندق 5★، مراكش", initials: "KB" },
+            { quote: "المسار المرئي غيّر حياتنا. ندير كل شيء كفريق، بدون Excel.", name: "نادية م.", role: "مسؤولة الموارد البشرية · مجموعة فندقية، أكادير", initials: "NM" },
+            { quote: "مجاني للبدء، والنتائج تظهر منذ الأسبوع الأول.", name: "يوسف أ.", role: "مدير الموارد البشرية · منتجع 4★، طنجة", initials: "YA" },
+          ]
+        },
+        stats: {
+          companies: "شركات نشطة",
+          candidates: "مرشحون مؤهّلون",
+          delay: "متوسط مدة التوظيف",
+        },
+        finalCta: {
+          titleLine1: "توظيفك القادم",
+          titleLine2: "يبدأ هنا",
+          subtitle: "انشر إعلانك الأول في أقل من 5 دقائق.",
+          cta: "انشر إعلانك الآن",
+          ctaArrow: "←",
+          bullets: "✓ مجاني للبدء · ✓ بدون بطاقة بنكية · ✓ متوفر عبر الإنترنت في 5 دقائق",
+        },
+        footer: "© 2026 CoinCarrière — coincarriere.com | منصة التوظيف في المغرب",
+        langToggleAria: "تغيير اللغة",
+        login: "تسجيل الدخول",
+        topbarCta: "انشر إعلانك",
+        themeToLight: "تفعيل الوضع الفاتح",
+        themeToDark: "تفعيل الوضع الداكن",
+      }
+    };
+
+    // State Variables
+    let currentLang = localStorage.getItem("cc_lang") === "ar" ? "ar" : "fr";
+    let currentTheme = localStorage.getItem("cc_theme") === "light" ? "light" : "dark";
+
+    // Partner Logos List
+    const partnerLogos = [
+      "Sofitel", "Marriott", "Accor", "Hilton", "Hyatt", "Radisson", 
+      "Sheraton", "Four Seasons", "La Mamounia", "Novotel", "Ibis", "IHG"
+    ];
+
+    // Initialize Infinite Marquee
+    function initMarquee() {
+      const track = document.getElementById("partners-track");
+      // Double the items to make the infinite loop scroll seamlessly
+      const list = [...partnerLogos, ...partnerLogos];
+      track.innerHTML = list.map(name => `<span class="hotel-pill">${name}</span>`).join('');
+    }
+
+    // Function to retrieve value from object by string key paths (e.g. 'hero.eyebrow')
+    function getTranslationValue(lang, path) {
+      return path.split('.').reduce((obj, key) => obj && obj[key], translations[lang]);
+    }
+
+    // Translation Update Engine
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("cc_lang", lang);
+
+      const t = translations[lang];
+      document.documentElement.lang = t.htmlLang;
+      document.documentElement.dir = t.dir;
+      document.title = t.pageTitle;
+      
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", t.pageDescription);
+
+      // Add appropriate class to body
+      if (lang === "ar") {
+        document.body.classList.remove("lang-fr");
+        document.body.classList.add("lang-ar");
+      } else {
+        document.body.classList.remove("lang-ar");
+        document.body.classList.add("lang-fr");
+      }
+
+      // Update static DOM elements that have [data-i18n]
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const path = el.getAttribute("data-i18n");
+        const val = getTranslationValue(lang, path);
+        if (val !== undefined) {
+          el.innerText = val;
+        }
+      });
+
+      // Update hero image alt tag
+      document.getElementById("hero-img").alt = t.hero.imageAlt;
+
+      // Handle custom section title for Driss Video (since it has non-standard keys)
+      const drissTitlePre = document.getElementById("driss-title-pre");
+      const drissTitleAccent = document.getElementById("driss-title-accent");
+      if (lang === "ar") {
+        drissTitlePre.innerText = "اكتشف ";
+        drissTitleAccent.innerText = "قصة إدريس";
+      } else {
+        drissTitlePre.innerText = "Découvrez ";
+        drissTitleAccent.innerText = "l'histoire de Driss";
+      }
+
+      // Update lang toggle buttons active states
+      const btnFr = document.getElementById("lang-fr");
+      const btnAr = document.getElementById("lang-ar");
+      if (lang === "fr") {
+        btnFr.classList.add("is-active");
+        btnFr.setAttribute("aria-pressed", "true");
+        btnAr.classList.remove("is-active");
+        btnAr.setAttribute("aria-pressed", "false");
+      } else {
+        btnAr.classList.add("is-active");
+        btnAr.setAttribute("aria-pressed", "true");
+        btnFr.classList.remove("is-active");
+        btnFr.setAttribute("aria-pressed", "false");
+      }
+
+      // Update document structure (RTL adjustments)
+      const groupToggle = document.getElementById("lang-toggle-group");
+      groupToggle.setAttribute("aria-label", t.langToggleAria);
+
+      // Force TopBar scroll state update to reflect current language strings
+      updateTopBar();
+    }
+
+    // Theme Update Engine
+    function setTheme(theme) {
+      currentTheme = theme;
+      localStorage.setItem("cc_theme", theme);
+      document.documentElement.dataset.theme = theme;
+
+      const themeToggle = document.getElementById("theme-toggle");
+      const iconContainer = document.getElementById("theme-icon-container");
+      
+      const t = translations[currentLang];
+      
+      if (theme === "dark") {
+        themeToggle.setAttribute("aria-label", t.themeToLight);
+        themeToggle.setAttribute("title", t.themeToLight);
+        iconContainer.innerHTML = `
+          <!-- Sun Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        `;
+      } else {
+        themeToggle.setAttribute("aria-label", t.themeToDark);
+        themeToggle.setAttribute("title", t.themeToDark);
+        iconContainer.innerHTML = `
+          <!-- Moon Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        `;
+      }
+    }
+
+    // TopBar morph on scroll
+    const loginBtn = document.getElementById("login-btn");
+    function updateTopBar() {
+      const isScrolled = window.scrollY > 80;
+      const t = translations[currentLang];
+      
+      if (isScrolled) {
+        loginBtn.classList.add("is-cta");
+        loginBtn.href = REGISTER_URL;
+        loginBtn.innerText = t.topbarCta;
+      } else {
+        loginBtn.classList.remove("is-cta");
+        loginBtn.href = LOGIN_URL;
+        loginBtn.innerText = t.login;
+      }
+    }
+
+    // Canvas Particle Physics
+    function initParticles(canvasId, density = 70, linkDistance = 130) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      let raf = 0;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const particles = [];
+
+      const resize = () => {
+        const w = canvas.offsetWidth;
+        const h = canvas.offsetHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      resize();
+
+      const ro = new ResizeObserver(resize);
+      ro.observe(canvas);
+
+      const w = () => canvas.offsetWidth;
+      const h = () => canvas.offsetHeight;
+
+      for (let i = 0; i < density; i++) {
+        particles.push({
+          x: Math.random() * w(),
+          y: Math.random() * h(),
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 1.4 + 0.6,
+        });
+      }
+
+      const draw = () => {
+        ctx.clearRect(0, 0, w(), h());
+
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > w()) p.vx *= -1;
+          if (p.y < 0 || p.y > h()) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(0, 119, 182, 0.85)";
+          ctx.fill();
+        }
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < linkDistance) {
+              const alpha = 0.18 * (1 - dist / linkDistance);
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(180, 220, 2, ${alpha})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+
+        raf = requestAnimationFrame(draw);
+      };
+      draw();
+    }
+
+    // Scroll Fade-in Section Observer
+    function initFadeSections() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      
+      document.querySelectorAll(".fade-section").forEach(el => observer.observe(el));
+    }
+
+    // Count Up Scroll Observer
+    function initCountUps() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
+              entry.target.classList.add("counted");
+              animateValue(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      document.querySelectorAll(".count-up").forEach(el => observer.observe(el));
+    }
+
+    function animateValue(obj) {
+      const end = parseInt(obj.getAttribute("data-end"), 10);
+      const duration = parseInt(obj.getAttribute("data-duration") || 1800, 10);
+      const start = performance.now();
+      
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // cubic ease-out
+        const current = Math.floor(end * eased);
+        obj.innerText = current.toLocaleString("fr-FR");
+        if (p < 1) {
+          requestAnimationFrame(tick);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Driss Video Custom Video Player Overlay
+    function initDrissPlayer() {
+      const video = document.getElementById("driss-video");
+      const playBtn = document.getElementById("driss-play-btn");
+      if (!video || !playBtn) return;
+
+      const handlePlay = () => {
+        video.play();
+        playBtn.classList.add("hidden");
+      };
+
+      playBtn.addEventListener("click", handlePlay);
+      
+      video.addEventListener("play", () => {
+        playBtn.classList.add("hidden");
+        video.setAttribute("controls", "true");
+      });
+
+      video.addEventListener("pause", () => {
+        playBtn.classList.remove("hidden");
+        video.removeAttribute("controls");
+      });
+    }
+
+    // Setup DOM Listeners & Initialization
+    window.addEventListener("DOMContentLoaded", () => {
+      // 1. Theme and translation state
+      setLanguage(currentLang);
+      setTheme(currentTheme);
+
+      // 2. Infinite Marquee
+      initMarquee();
+
+      // 3. Canvas Particles
+      initParticles("hero-particles", 75, 130);
+      initParticles("cta-particles", 60, 130);
+
+      // 4. Scroll events
+      window.addEventListener("scroll", updateTopBar, { passive: true });
+      updateTopBar();
+
+      // 5. Scroll observers for sections and counters
+      initFadeSections();
+      initCountUps();
+
+      // 6. Custom Video Player
+      initDrissPlayer();
+
+      // 7. Toggle Event Listeners
+      document.getElementById("lang-fr").addEventListener("click", () => setLanguage("fr"));
+      document.getElementById("lang-ar").addEventListener("click", () => setLanguage("ar"));
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const nextTheme = currentTheme === "dark" ? "light" : "dark";
+        setTheme(nextTheme);
+      });
+    });
+  </script>
+</body>
+</html>
