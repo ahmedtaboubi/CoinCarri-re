@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr" data-theme="dark">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoinCarrière — Recrutez vos employés hôteliers au Maroc</title>
-  <meta name="description" content="Publiez votre offre saisonnière gratuitement sur CoinCarrière. +451 hôtels & restaurants recrutent leurs équipes en 48h au Maroc.">
+  <title>CoinCarrière — وظّف موظفي الفنادق في المغرب</title>
+  <meta name="description" content="انشر عرضك الموسمي مجانًا على CoinCarrière. +451 فندق ومطعم يوظفون فرقهم في 48 ساعة بالمغرب.">
   
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -697,7 +697,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] font-sans overflow-x-hidden lang-fr">
+<body class="min-h-screen bg-[var(--page-bg)] text-[var(--text-primary)] font-sans overflow-x-hidden lang-ar">
 
   <!-- TOP BAR & CONTROLS -->
   <div class="fixed top-4 end-4 z-50 flex items-center gap-2">
@@ -732,16 +732,16 @@
       <button
         type="button"
         id="lang-fr"
-        class="lang-toggle-btn is-active"
-        aria-pressed="true"
+        class="lang-toggle-btn"
+        aria-pressed="false"
       >
         FR
       </button>
       <button
         type="button"
         id="lang-ar"
-        class="lang-toggle-btn"
-        aria-pressed="false"
+        class="lang-toggle-btn is-active"
+        aria-pressed="true"
       >
         AR
       </button>
@@ -1454,7 +1454,7 @@
     };
 
     // State Variables
-    let currentLang = localStorage.getItem("cc_lang") === "ar" ? "ar" : "fr";
+    let currentLang = localStorage.getItem("cc_lang") === "fr" ? "fr" : "ar";
     let currentTheme = localStorage.getItem("cc_theme") === "light" ? "light" : "dark";
 
     // Partner Logos List
